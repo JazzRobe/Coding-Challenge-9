@@ -41,10 +41,37 @@ class Section {
     } //adds book to books array
 
     getAvailableBooks() {
-        
+        //ADD LATER!!!
     } //returns all books with isAvailable === true
 
     listBooks() {
         return books;
     }
 }
+
+
+//task 3: create a Patron class
+
+class Patron {
+    constructor(name, borrowedBooks) {
+        this.name = name;
+        this.borrowedBooks = borrowedBooks;
+    } //create class with parameters
+
+    borrowBook(book) {
+        if (this.isAvailable === true) {
+            this.borrowedBooks.push(book);
+            this.isAvailable === false;
+        } else {
+            return "This book is unavailable.";
+        }
+    } //if available, add to borrowedBooks and change availability. if not, return error
+
+    returnBook(book) {
+        this.borrowedBooks.find() //FINISH LATER !!!
+    } //if they own it, remove from borrowedBooks. if not, show error.
+}
+
+//returnBook: check if they own the book.
+//remove book from borrowedBooks.
+//if they don't own, "Patron does not own book."

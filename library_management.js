@@ -24,3 +24,27 @@ class Book {
         }
     } //sets new availability of book. if available, change to false. if not, change to true.
 }
+
+
+//create a Section class
+
+const books = []; //initial books array
+
+class Section {
+    constructor(name, books) {
+        this.name = name;
+        this.books = books;
+    } //constructs class with parameters
+
+    addBook(book) {
+        this.book.push(books)
+    } //adds book to books array
+
+    getAvailableBooks() {
+        
+    } //returns all books with isAvailable === true
+
+    listBooks() {
+        return books;
+    }
+}

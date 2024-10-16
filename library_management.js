@@ -59,14 +59,14 @@ class Section {
 class Patron {
     constructor(name, borrowedBooks) {
         this.name = name;
-        this.borrowedBooks = borrowedBooks;
+        this.borrowedBooks = [];
     } //create class with parameters
 
     borrowBook(book) {
         if (this.isAvailable === true) {
             this.borrowedBooks.push(book);
-            this.isAvailable === false
             console.log(`${this.name} borrowed ${book.title}.`);
+            this.isAvailable === false
         } else {
             return "This book is unavailable.";
         }
@@ -76,8 +76,8 @@ class Patron {
         let borrowingBook = this.borrowedBooks.find(book => book.title === book.title);
         if (borrowingBook) {
             this.borrowedBooks = this.borrowedBooks.filter(book => book.title !== book.title);
-            book.isAvailable = true;
             console.log(`${book.title} is now available.`);
+            book.isAvailable = true;
         } else {
             console.log(`${this.name} did not borrow this book.`);
         }
@@ -111,21 +111,21 @@ class VIPPatron extends Patron {
 
 //task 6: create and manage sections and patrons (from example data)
 
-//create sections
+//create sections//
 const fiction = new Section("Fiction");
-const science = new Section("Science");
+const science = new Section("Science"); 
 
-//create books
+//create books//
 const book1 = new Book("1984", "George Orwell", "1234567890");
 const book2 = new Book("Brave New World", "Aldous Huxley", "0987654321");
 const book3 = new Book("The Selfish Gene", "Richard Dawkins", "1122334455");
 
-//add books to sections
+//add books to sections//
 fiction.addBook(book1);
 fiction.addBook(book2);
 science.addBook(book3);
 
-//create patrons
+//create patrons//
 const regularPatron = new Patron("John Doe");
 const vipPatron = new VIPPatron("Jane Smith", true);
 
@@ -138,9 +138,9 @@ vipPatron.borrowBook(book1);
 //return the book
 regularPatron.returnBook(book1);
 
-//list books and availability
+//list books and availability//
 fiction.listBooks();
 
-//calculate total available books in each section
+//calculate total available books in each section//
 console.log(`Total available books in Fiction: ${fiction.getAvailableBooks()}`);
 console.log(`Total available books in Science: ${science.getAvailableBooks()}`);

@@ -46,7 +46,11 @@ class Section {
 
     listBooks() {
         return this.books.map(book => `The book ${book.title} is ${book.isAvailable ? "available" : "borrowed"}.`);
-    }
+    } //list of all books and their titles and availability
+    
+    calculateTotalBooksAvailable() {
+        return this.getAvailableBooks();
+    } // calculates number of books available using previous method
 }
 
 
@@ -69,8 +73,8 @@ class Patron {
     } //if available, add to borrowedBooks and change availability. if not, return error
 
     returnBook(book) {
-        let book = this.borrowedBooks.find(book => book.title === book.title);
-        if (book) {
+        let borrowingBook = this.borrowedBooks.find(book => book.title === book.title);
+        if (borrowingBook) {
             this.borrowedBooks = this.borrowedBooks.filter(book => book.title !== book.title);
             book.isAvailable = true;
             console.log(`${book.title} is now available.`);
@@ -99,3 +103,7 @@ class VIPPatron extends Patron {
         }
     }
 }
+
+
+//task 5: handle books borrowing and returning
+//added to the Section class ^^
